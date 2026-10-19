@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nonso Tech | iPhones in Kano, delivered nationwide</title>
+  <meta name="description" content="Buy new, UK used and Dubai used iPhones in Kano. Browse the catalog, add to cart and order on WhatsApp. We deliver nationwide.">
+  <meta name="theme-color" content="#d90f1c">
+
+  <link rel="icon" href="images/favicon.png">
+
+  <!-- Apply the saved theme before the page paints, so there is no flash -->
+  <script>
+    try {
+      if (localStorage.getItem("nonso-tech-theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (e) { /* storage blocked: stay on the light theme */ }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#catalog">Skip to phones</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Nonso Tech home">
+        <img src="images/logo.png" alt="Nonso Tech" width="160" height="48">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main">
+        <a href="#catalog">Phones</a>
+        <a href="#laptops">Laptops</a>
+        <a href="#why-us">Why Nonso Tech</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Cart button: shown on larger screens (phones use the bottom bar) -->
+      <button class="cart-toggle" id="cart-toggle" type="button"
+              aria-controls="cart-drawer" aria-expanded="false">
+        Cart
+        <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+      </button>
+
+      <!-- Menu button: phones only -->
+      <button class="menu-toggle" id="menu-toggle" type="button"
+              aria-controls="main-nav" aria-expanded="false">
+        Menu
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO (mirrors the flyer) ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <span class="hero-swoosh" aria-hidden="true"></span>
+
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+          <h1 id="hero-title">
+            <span class="line">Quality <span class="red">Gadgets,</span></span>
+            <span class="line"><span class="red">Best</span> Prices</span>
+          </h1>
+          <p class="hero-text">
+            Your hub for premium, quality and affordable iPhones.
+            Pick your phone, send your order on WhatsApp, and we deliver nationwide.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#catalog">Browse phones</a>
+            <a class="btn btn-outline" id="hero-whatsapp" href="#" target="_blank" rel="noopener">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-panel">
+            <ul class="hero-tags" aria-label="Conditions available">
+              <li>New</li>
+              <li>UK Used</li>
+              <li>Dubai Used</li>
+            </ul>
+            <img class="hero-phones" src="images/Hero-Background.jpg" width="657" height="455"
+                 alt="A lineup of iPhones in different colours">
+          </div>
+          <a class="shop-badge" href="#catalog">Shop now</a>
+        </div>
+
+      </div>
+
+      <!-- Contact card, like the bottom of the flyer -->
+      <div class="container">
+        <div class="contact-card">
+          <a class="contact-item" href="tel:+2348167608522">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+            </span>
+            <span class="contact-text">
+              <span class="contact-label">Call / WhatsApp</span>
+              <strong class="contact-value">08167608522</strong>
+            </span>
+          </a>
+
+          <div class="contact-item">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            </span>
+            <span class="contact-text">
+              <span class="contact-label">Location</span>
+              <strong class="contact-value">Kano</strong>
+              <span class="contact-sub">We deliver nationwide</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CATALOG ============ -->
+    <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="container">
+        <h2 id="catalog-title">iPhones</h2>
+        <p class="section-note">
+          Prices are starting prices. We confirm the final price with you on WhatsApp.
+        </p>
+
+        <!-- Series chips (built by JavaScript from the product data) -->
+        <div class="series-bar" id="series-bar" role="group" aria-label="Filter by iPhone series"></div>
+
+        <!-- Search and sort -->
+        <form class="filters" id="filters" role="search" aria-label="Search phones">
+          <div class="field field-search">
+            <label for="search">Search</label>
+            <input type="search" id="search" name="search" placeholder="e.g. iPhone 13 Pro">
+          </div>
+
+          <div class="field">
+            <label for="sort">Sort by</label>
+            <select id="sort" name="sort">
+              <option value="default">Default order</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+            </select>
+          </div>
+        </form>
+
+        <p class="results-count" id="results-count" aria-live="polite"></p>
+
+        <!-- Product cards are rendered here by JavaScript -->
+        <div class="product-grid" id="product-grid"></div>
+
+        <!-- Shown when filters match nothing -->
+        <div class="empty-state" id="empty-state" hidden>
+          <h3>No phones match your search</h3>
+          <p>Clear the filters, or message us and we will find it for you.</p>
+        </div>
+
+        <noscript>
+          <p class="noscript-note">
+            The catalog needs JavaScript. You can still order by WhatsApp on 08167608522.
+          </p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- ============ CAN'T FIND IT ============ -->
+    <section class="request-banner" aria-labelledby="request-title">
+      <div class="container request-inner">
+        <div>
+          <h2 id="request-title">Don't see your phone?</h2>
+          <p>Message us the model you want, or any other item. We reply quickly and get it for you.</p>
+        </div>
+        <a class="btn btn-light" id="request-whatsapp" href="#" target="_blank" rel="noopener">
+          Ask on WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ LAPTOPS (COMING SOON) ============ -->
+    <section class="laptops" id="laptops" aria-labelledby="laptops-title">
+      <div class="container laptops-inner">
+        <div>
+          <h2 id="laptops-title">Laptops are coming soon</h2>
+          <p>We are adding laptops to the shop. Tell us what you need and we will message you when they arrive.</p>
+        </div>
+        <a class="btn btn-secondary" id="laptops-whatsapp" href="#" target="_blank" rel="noopener">
+          Notify me on WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ WHY NONSO TECH ============ -->
+    <section class="why-us" id="why-us" aria-labelledby="why-title">
+      <div class="container">
+        <h2 id="why-title">Why buy from Nonso Tech</h2>
+        <ul class="why-list">
+          <li>
+            <h3>Clear conditions</h3>
+            <p>Every phone is listed as New, UK Used or Dubai Used, so you know what you are buying.</p>
+          </li>
+          <li>
+            <h3>Fair starting prices</h3>
+            <p>See the starting price before you ask. We agree the final price with you on WhatsApp.</p>
+          </li>
+          <li>
+            <h3>Delivery nationwide</h3>
+            <p>We are in Kano and we deliver to your city. Delivery cost is agreed in the chat.</p>
+          </li>
+          <li>
+            <h3>Talk to a person</h3>
+            <p>Call or message us at any point before you buy. No accounts, no online payment forms.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Nonso Tech" width="140" height="42">
+        <p>Your hub for premium, quality and affordable phones.</p>
+      </div>
+
+      <address class="footer-contact">
+        <h2>Contact us</h2>
+        <p>
+          Call or WhatsApp:
+          <a href="tel:+2348167608522">08167608522</a>
+        </p>
+        <p>Location: Kano. We deliver nationwide.</p>
+        <p>
+          <a id="footer-whatsapp" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        </p>
+      </address>
+    </div>
+    <p class="copyright">&copy; <span id="year">2026</span> Nonso Tech. All rights reserved.</p>
+  </footer>
+
+  <!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+  <a class="whatsapp-float" id="whatsapp-float" href="#" target="_blank" rel="noopener"
+     aria-label="Chat with Nonso Tech on WhatsApp">
+    WhatsApp
+  </a>
+
+  <!-- ============ DARK MODE BUTTON (floating, bottom left) ============ -->
+  <button class="theme-toggle" id="theme-toggle" type="button"
+          aria-pressed="false" aria-label="Switch to dark mode">
+    <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    <span class="theme-label">Dark</span>
+  </button>
+
+  <!-- ============ MOBILE BOTTOM BAR (phones only) ============ -->
+  <nav class="mobile-bar" aria-label="Quick actions">
+    <a class="btn btn-dark" id="bar-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    <button type="button" class="btn btn-primary" id="bar-cart"
+            aria-controls="cart-drawer">
+      Cart <span class="cart-count" id="bar-cart-count">0</span>
+    </button>
+  </nav>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="cart-overlay" id="cart-overlay" hidden></div>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="cart-header">
+      <h2 id="cart-title">Your cart</h2>
+      <button type="button" class="cart-close" id="cart-close" aria-label="Close cart">Close</button>
+    </div>
+
+    <ul class="cart-items" id="cart-items">
+      <!-- Cart items are rendered here by JavaScript -->
+    </ul>
+
+    <p class="cart-empty" id="cart-empty">Your cart is empty. Add a phone to get started.</p>
+
+    <div class="cart-footer" id="cart-footer" hidden>
+      <p class="cart-total">
+        <span>Estimated total</span>
+        <strong id="cart-total">₦0</strong>
+      </p>
+      <p class="cart-note">Based on starting prices. The final price is confirmed on WhatsApp.</p>
+      <button type="button" class="btn btn-primary btn-block" id="cart-send">
+        Send order on WhatsApp
+      </button>
+      <button type="button" class="btn btn-text" id="cart-clear">Clear cart</button>
+    </div>
+  </aside>
+
+  <!-- ============ PHOTO VIEWER ============ -->
+  <dialog class="lightbox" id="lightbox" aria-label="Phone photo">
+    <button type="button" class="lightbox-close" id="lightbox-close">Close</button>
+    <img id="lightbox-img" src="" alt="">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </dialog>
+
+  <!-- ============ TEMPLATES (copied by JavaScript) ============ -->
+
+  <!-- One card per iPhone model -->
+  <template id="product-card-template">
+    <article class="product-card">
+      <button type="button" class="product-image" aria-label="View larger photo">
+        <img src="" alt="" loading="lazy" width="400" height="400">
+      </button>
+      <div class="product-body">
+        <h3 class="product-name"></h3>
+
+        <fieldset class="option-group">
+          <legend class="option-label">Storage</legend>
+          <div class="pill-group option-storage"></div>
+        </fieldset>
+
+        <fieldset class="option-group">
+          <legend class="option-label">Condition</legend>
+          <div class="pill-group option-condition"></div>
+        </fieldset>
+
+        <p class="product-price">
+          Starting from <strong class="price-value"></strong>
+        </p>
+
+        <div class="card-actions">
+          <button type="button" class="btn btn-primary btn-block add-to-cart">Add to cart</button>
+          <button type="button" class="btn btn-outline btn-block order-now">Order now</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- One row in the cart -->
+  <template id="cart-item-template">
+    <li class="cart-item">
+      <div class="cart-item-info">
+        <p class="cart-item-name"></p>
+        <p class="cart-item-details"></p>
+        <p class="cart-item-price"></p>
+      </div>
+      <div class="cart-item-controls">
+        <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">&minus;</button>
+        <span class="qty-value"></span>
+        <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+        <button type="button" class="btn btn-text cart-remove">Remove</button>
+      </div>
+    </li>
+  </template>
+
+  <!-- Scripts: data first, then the app logic -->
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
